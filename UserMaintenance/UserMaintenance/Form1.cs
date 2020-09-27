@@ -17,8 +17,7 @@ namespace UserMaintenance
         public Form1()
         {
             InitializeComponent();
-            labLastName.Text = Resource1.LastName; //a lastname labelnek az lesz a neve, amit a resx fileba megadtam a LastName stringnek valueként
-            labFirstName.Text = Resource1.FirstName;
+            labFullName.Text = Resource1.FullName; 
             btnAdd.Text = Resource1.Add;
 
             listUsers.DataSource = users;
@@ -27,8 +26,7 @@ namespace UserMaintenance
 
             var u = new User()
             {
-                LastName = textBLastName.Text,
-                FirstName = textBFirstName.Text
+                FullName = textBFullName.Text
             };
             users.Add(u);
         }
