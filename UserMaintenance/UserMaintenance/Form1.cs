@@ -21,17 +21,11 @@ namespace UserMaintenance
             labFullName.Text = Resource1.FullName; 
             btnAdd.Text = Resource1.Add;
             btnSave.Text = Resource1.Save;
+            btnDelete.Text = Resource1.Delete;
 
             listUsers.DataSource = users;
             listUsers.ValueMember = "ID";
             listUsers.DisplayMember = "FullName";
-
-            var u = new User()
-            {
-                FullName = textBFullName.Text
-            };
-            users.Add(u);
-            
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
@@ -43,7 +37,29 @@ namespace UserMaintenance
                 StreamWriter sw = new StreamWriter(stream);
                 sw.Write(textBFullName.Text);
                 sw.Close();
+                //illetve itt is szeretném megkérdezni, hogy hogy lehetne az egész addig leírt
+                //listát lementeni a csv-be. 
             }
+            
+        }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            //listUsers.SelectedItem
+            //Kérem segítsenek, ezt nem tudom megcsinálni!
+        }
+
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            var u = new User()
+            {
+                FullName = textBFullName.Text
+            };
+            users.Add(u);
+
+            listUsers.DataSource = users;
+            listUsers.ValueMember = "ID";
+            listUsers.DisplayMember = "FullName";
         }
     }
 }
