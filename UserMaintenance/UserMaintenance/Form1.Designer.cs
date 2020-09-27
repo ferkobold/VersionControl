@@ -29,11 +29,10 @@
         private void InitializeComponent()
         {
             this.listUsers = new System.Windows.Forms.ListBox();
-            this.textBLastName = new System.Windows.Forms.TextBox();
-            this.textBFirstName = new System.Windows.Forms.TextBox();
-            this.labLastName = new System.Windows.Forms.Label();
-            this.labFirstName = new System.Windows.Forms.Label();
+            this.textBFullName = new System.Windows.Forms.TextBox();
+            this.labFullName = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listUsers
@@ -44,57 +43,50 @@
             this.listUsers.Size = new System.Drawing.Size(255, 251);
             this.listUsers.TabIndex = 0;
             // 
-            // textBLastName
+            // textBFullName
             // 
-            this.textBLastName.Location = new System.Drawing.Point(356, 9);
-            this.textBLastName.Name = "textBLastName";
-            this.textBLastName.Size = new System.Drawing.Size(100, 20);
-            this.textBLastName.TabIndex = 1;
+            this.textBFullName.Location = new System.Drawing.Point(356, 9);
+            this.textBFullName.Name = "textBFullName";
+            this.textBFullName.Size = new System.Drawing.Size(100, 20);
+            this.textBFullName.TabIndex = 1;
             // 
-            // textBFirstName
+            // labFullName
             // 
-            this.textBFirstName.Location = new System.Drawing.Point(356, 35);
-            this.textBFirstName.Name = "textBFirstName";
-            this.textBFirstName.Size = new System.Drawing.Size(100, 20);
-            this.textBFirstName.TabIndex = 2;
-            // 
-            // labLastName
-            // 
-            this.labLastName.AutoSize = true;
-            this.labLastName.Location = new System.Drawing.Point(274, 12);
-            this.labLastName.Name = "labLastName";
-            this.labLastName.Size = new System.Drawing.Size(35, 13);
-            this.labLastName.TabIndex = 3;
-            this.labLastName.Text = "label1";
-            // 
-            // labFirstName
-            // 
-            this.labFirstName.AutoSize = true;
-            this.labFirstName.Location = new System.Drawing.Point(274, 38);
-            this.labFirstName.Name = "labFirstName";
-            this.labFirstName.Size = new System.Drawing.Size(35, 13);
-            this.labFirstName.TabIndex = 4;
-            this.labFirstName.Text = "label2";
+            this.labFullName.AutoSize = true;
+            this.labFullName.Location = new System.Drawing.Point(274, 12);
+            this.labFullName.Name = "labFullName";
+            this.labFullName.Size = new System.Drawing.Size(35, 13);
+            this.labFullName.TabIndex = 3;
+            this.labFullName.Text = "label1";
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(277, 61);
+            this.btnAdd.Location = new System.Drawing.Point(277, 35);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(179, 36);
             this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "button1";
             this.btnAdd.UseVisualStyleBackColor = true;
             // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(277, 77);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(179, 36);
+            this.btnSave.TabIndex = 6;
+            this.btnSave.Text = "button2";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(468, 278);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.labFirstName);
-            this.Controls.Add(this.labLastName);
-            this.Controls.Add(this.textBFirstName);
-            this.Controls.Add(this.textBLastName);
+            this.Controls.Add(this.labFullName);
+            this.Controls.Add(this.textBFullName);
             this.Controls.Add(this.listUsers);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -106,11 +98,10 @@
         #endregion
 
         private System.Windows.Forms.ListBox listUsers;
-        private System.Windows.Forms.TextBox textBLastName;
-        private System.Windows.Forms.TextBox textBFirstName;
-        private System.Windows.Forms.Label labLastName;
-        private System.Windows.Forms.Label labFirstName;
+        private System.Windows.Forms.TextBox textBFullName;
+        private System.Windows.Forms.Label labFullName;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnSave;
     }
 }
 
