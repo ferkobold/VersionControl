@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,7 @@ namespace UserMaintenance
             InitializeComponent();
             labFullName.Text = Resource1.FullName; 
             btnAdd.Text = Resource1.Add;
+            btnSave.Text = Resource1.Save;
 
             listUsers.DataSource = users;
             listUsers.ValueMember = "ID";
@@ -29,6 +31,19 @@ namespace UserMaintenance
                 FullName = textBFullName.Text
             };
             users.Add(u);
+            
+        }
+
+        private void BtnSave_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                Stream stream = sfd.OpenFile();
+                StreamWriter sw = new StreamWriter(stream);
+                sw.Write(textBFullName.Text);
+                sw.Close();
+            }
         }
     }
 }
