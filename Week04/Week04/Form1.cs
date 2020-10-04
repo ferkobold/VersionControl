@@ -48,5 +48,19 @@ namespace Week04
         {
             Flats = context.Flats.ToList();
         }
+        private void CreateTable()
+        {
+            string[] headers = new string[]
+            {
+                "Kód",
+                "Eladó",
+                "Oldal",
+                "Kerület",
+                "Lift",
+                "Szobák száma",
+                "Alapterület (m2)",
+                "Ár (mFt)",
+                "Négyzetméter ár (Ft/m2)" };
+        }
     }
 }
