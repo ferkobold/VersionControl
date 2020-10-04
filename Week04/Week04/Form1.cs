@@ -78,6 +78,9 @@ namespace Week04
                 values[counter, 8] = "";
                 counter++;
             }
+            xlSheet.get_Range(
+                GetCell(2, 1),
+                GetCell(1 + values.GetLength(0), values.GetLength(1))).Value2 = values;
         }
         private string GetCell(int x, int y)
         {
