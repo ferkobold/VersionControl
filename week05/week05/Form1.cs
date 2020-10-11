@@ -54,5 +54,24 @@ namespace week05
         /*Jelenítds meg a Portfóliódat az új dataGridViewban*/
         }
 
+        private decimal GetPortfolioValue(DateTime date)
+        {
+            decimal value = 0;
+            foreach (var item in Portfolio)
+            {
+                var last = (from x in Ticks
+                            where item.Index == x.Index.Trim()
+                            && date <= x.TradingDay
+                            select x)
+                            .First();
+                value += (decimal)last.Price * item.Volume;
+            }
+        /*Szóval feljebb megcsinálom a Portfoliot. Utána átmegyek az összes 
+         elemén ennek a Portfolionak azzal a kódrészlettel, hogy
+         foreach(var item in Portfolio), tehát itt az összes Portfolioban 
+         szereplő ismeretlenre, amit itemnek neveztem el le fog futni a
+         foreach alatti kódrészlet. */
+            return value;
+        }
     }
 }
