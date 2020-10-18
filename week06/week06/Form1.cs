@@ -62,6 +62,9 @@ namespace week06
             chartRateData.DataSource = Rates;
 
             RefreshData();
+
+            BindingList<string> Currencies = new BindingList<string>();
+            comboBox1.DataSource = Currencies;
         }
 
         private void RefreshData()
