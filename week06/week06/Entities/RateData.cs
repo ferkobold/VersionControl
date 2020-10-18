@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace week06.Entities
 {
-    class RateData
+    public class RateData
     {
-        DateTime Date { get; set; }
-        String Currency { get; set; }
-        Decimal Value { get; set; }
+        public DateTime Date { get; set; }
+        public String Currency { get; set; }
+        public Decimal Value { get; set; }
     }
 }

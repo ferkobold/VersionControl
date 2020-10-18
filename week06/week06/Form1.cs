@@ -9,11 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using week06.MnbServiceReference;
 using week06.Entities;
+using System.Xml;
 
 namespace week06
 {
     public partial class Form1 : Form
     {
+        BindingList<RateData> Rates = new BindingList<RateData>();
+
         public Form1()
         {
             InitializeComponent();
@@ -31,9 +34,29 @@ namespace week06
 
             var result = response.GetExchangeRatesResult;
 
-            BindingList<RateData> Rates = new BindingList<RateData>();
 
             dataGridView1.DataSource = Rates;
+
+
+            var xml = new XmlDocument();
+            xml.LoadXml(result);
+            foreach (XmlElement element in xml.DocumentElement)
+            {
+               var rate = new RateData();
+                
+
+                rate.Date = DateTime.Parse(element.GetAttribute("date"));
+
+                var childElement = (XmlElement)element.ChildNodes[0];
+                rate.Currency = childElement.GetAttribute("curr");
+
+                var unit = decimal.Parse(childElement.GetAttribute("unit"));
+                var value = decimal.Parse(childElement.InnerText);
+                if (unit != 0)
+                rate.Value = value / unit;
+
+                Rates.Add(rate);
+            }
         }
     }
 }
