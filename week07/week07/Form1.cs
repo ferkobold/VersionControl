@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using week07.Entities;
 
 
 /*Enumeráció: olyan típus, amely meghatározott értékek névvel ellátott
