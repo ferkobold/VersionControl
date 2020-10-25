@@ -62,6 +62,26 @@ namespace week07
 
             return birthprobability;
         }
+
+        List<DeathProbability> GetDeathProbabilities(string csvpath)
+        {
+            List<DeathProbability> deathprobability = new List<DeathProbability>();
+
+            using(StreamReader sr = new StreamReader(csvpath, Encoding.Default))
+            {
+                while(!sr.EndOfStream)
+                {
+                    var line = sr.ReadLine().Split(';');
+                    deathprobability.Add(new DeathProbability()
+                    {
+                        Gender = (Gender)Enum.Parse(typeof(Gender), line[0]),
+                        Age = int.Parse(line[1]),
+                        P = double.Parse(line[2])
+                    });
+                }
+            }
+            return deathprobability;
+        }
         public Form1()
         {
             InitializeComponent();
