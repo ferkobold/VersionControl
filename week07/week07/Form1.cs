@@ -85,6 +85,10 @@ namespace week07
         public Form1()
         {
             InitializeComponent();
+
+            Population = GetPopulation(@"C:\temp\nép.csv");
+            BirthProbabilities = GetBirthProbabilities(@"C:\temp\születés.csv");
+            DeathProbabilities = GetDeathProbabilities(@"C:\temp\halál.csv");
         }
     }
 }
