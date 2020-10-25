@@ -91,6 +91,23 @@ namespace week07
             Population = GetPopulation(@"C:\temp\nép.csv");
             BirthProbabilities = GetBirthProbabilities(@"C:\temp\születés.csv");
             DeathProbabilities = GetDeathProbabilities(@"C:\temp\halál.csv");
+
+            for (int year = 2005; year <= 2024; year++)
+            {
+                for (int i = 0; i < Population.Count; i++)
+                {
+                    //szimuláció
+                }
+
+                int nbrOfMales = (from x in Population
+                                  where x.Gender == Gender.Male && x.IsAlive
+                                  select x).Count();
+                int nbrOfFemales = (from x in Population
+                                    where x.Gender == Gender.Female && x.IsAlive
+                                    select x).Count();
+                Console.WriteLine(
+                    string.Format("Év:{0} Fiúk:{1} Lányok:{2}", year, nbrOfMales, nbrOfFemales));
+            }
         }
     }
 }
