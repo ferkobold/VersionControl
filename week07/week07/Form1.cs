@@ -41,6 +41,27 @@ namespace week07
             }
             return population;
         }
+
+        public List<BirthProbability> GetBirthProbabilities(string csvpath)
+        {
+            List<BirthProbability> birthprobability = new List<BirthProbability>();
+
+            using(StreamReader sr = new StreamReader(csvpath, Encoding.Default))
+            {
+                while(!sr.EndOfStream)
+                {
+                    var line = sr.ReadLine().Split(';');
+                    birthprobability.Add(new BirthProbability()
+                    {
+                        Age = int.Parse(line[0]),
+                        NbrOfChildren = int.Parse(line[1]),
+                        P = double.Parse(line[2])
+                    });
+                }
+            }
+
+            return birthprobability;
+        }
         public Form1()
         {
             InitializeComponent();
