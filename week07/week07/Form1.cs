@@ -82,6 +82,8 @@ namespace week07
             }
             return deathprobability;
         }
+
+        Random rng = new Random(69420);
         public Form1()
         {
             InitializeComponent();
