@@ -21,9 +21,9 @@ namespace week08.Entities
         // += és = között az a difi, hogy += így megváltoztatja
         private void Ball_Paint(object sender, PaintEventArgs e)
         {
-            //DrawImage függvényn
+            //DrawImage függvény
             //PaintEventArgs argumentumokból kérjük le az adott osztályhoz létrehozott
-            //példányt: e.Graphics
+            //grafika példányt: e.Graphics
             DrawImage(e.Graphics);
         }
 
