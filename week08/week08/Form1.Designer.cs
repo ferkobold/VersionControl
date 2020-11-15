@@ -34,7 +34,8 @@
             this.conveyorTimer = new System.Windows.Forms.Timer(this.components);
             this.btnSelectCar = new System.Windows.Forms.Button();
             this.btnSelectBall = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelNext = new System.Windows.Forms.Label();
+            this.btnColor = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // mainPanel
@@ -65,7 +66,7 @@
             this.btnSelectCar.TabIndex = 1;
             this.btnSelectCar.Text = "CAR";
             this.btnSelectCar.UseVisualStyleBackColor = true;
-            this.btnSelectCar.Click += new System.EventHandler(this.Button1_Click);
+            this.btnSelectCar.Click += new System.EventHandler(this.BtnSelectCar_Click);
             // 
             // btnSelectBall
             // 
@@ -75,23 +76,35 @@
             this.btnSelectBall.TabIndex = 2;
             this.btnSelectBall.Text = "BALL";
             this.btnSelectBall.UseVisualStyleBackColor = true;
-            this.btnSelectBall.Click += new System.EventHandler(this.Button2_Click);
+            this.btnSelectBall.Click += new System.EventHandler(this.BtnSelectBall_Click);
             // 
-            // label1
+            // labelNext
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 240);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Coming next:";
+            this.labelNext.AutoSize = true;
+            this.labelNext.Location = new System.Drawing.Point(12, 240);
+            this.labelNext.Name = "labelNext";
+            this.labelNext.Size = new System.Drawing.Size(68, 13);
+            this.labelNext.TabIndex = 0;
+            this.labelNext.Text = "Coming next:";
+            // 
+            // btnColor
+            // 
+            this.btnColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnColor.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnColor.Location = new System.Drawing.Point(12, 294);
+            this.btnColor.Name = "btnColor";
+            this.btnColor.Size = new System.Drawing.Size(228, 23);
+            this.btnColor.TabIndex = 3;
+            this.btnColor.UseVisualStyleBackColor = false;
+            this.btnColor.Click += new System.EventHandler(this.BtnColor_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnColor);
+            this.Controls.Add(this.labelNext);
             this.Controls.Add(this.btnSelectBall);
             this.Controls.Add(this.btnSelectCar);
             this.Controls.Add(this.mainPanel);
@@ -108,8 +121,9 @@
         private System.Windows.Forms.Timer createTimer;
         private System.Windows.Forms.Timer conveyorTimer;
         private System.Windows.Forms.Button btnSelectCar;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelNext;
         private System.Windows.Forms.Button btnSelectBall;
+        private System.Windows.Forms.Button btnColor;
     }
 }
 

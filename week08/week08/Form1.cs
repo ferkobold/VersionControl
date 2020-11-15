@@ -14,6 +14,8 @@ namespace week08
 {
     public partial class Form1 : Form
     {
+        private Toy _nextToy;
+
         List<Toy> _toys = new List<Toy>();
 
         //Hozz létre egy BallFactory típusú kifejtett propertyt is Factory néven. 
@@ -21,7 +23,9 @@ namespace week08
         public IToyFactory Factory
         {
             get { return _factory; }
-            set { _factory = value; }
+            set { _factory = value;
+                DisplayNext();
+            }
         }
 
         public Form1()
@@ -61,14 +65,35 @@ namespace week08
             
         }
 
-        private void btnSelectCar_Click(object sender, EventArgs e)
+        private void BtnSelectCar_Click(object sender, EventArgs e)
         {
-
+            Factory = new CarFactory();
         }
 
-        private void btnSelectBall_Click(object sender, EventArgs e)
+        private void BtnSelectBall_Click(object sender, EventArgs e)
         {
+            Factory = new BallFactory();
+        }
 
+        private void DisplayNext()
+        {
+            if (_nextToy != null)
+                Controls.Remove(_nextToy);
+            _nextToy = Factory.CreateNew();
+            _nextToy.Top = labelNext.Top + labelNext.Height + 30;
+            _nextToy.Left = labelNext.Left;
+            Controls.Add(_nextToy);
+        }
+
+        private void BtnColor_Click(object sender, EventArgs e)
+        {
+            var button = (Button)sender;
+            var ColorPicker = new ColorDialog();
+
+            ColorPicker.Color = button.BackColor;
+            if (ColorPicker.ShowDialog() != DialogResult.OK)
+                return;
+            button.BackColor = ColorPicker.Color;
         }
     }
 }
