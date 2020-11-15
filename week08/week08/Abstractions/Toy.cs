@@ -6,21 +6,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace week08.Entities
 {
-    public class Ball : Label
+    public abstract class Toy : Label
     {
-        public Ball()
+        public Toy()
         {
             AutoSize = false;
             Width = 50;
             Height = Width;
-            Paint += Ball_Paint;
+            Paint += Toy_Paint;
         }
         //Milyen billentyűkombinációval lehet eseményt létrehozni? 
         // += és = között az a difi, hogy += így megváltoztatja
-        private void Ball_Paint(object sender, PaintEventArgs e)
+        private void Toy_Paint(object sender, PaintEventArgs e)
         {
             //DrawImage függvény
             //PaintEventArgs argumentumokból kérjük le az adott osztályhoz létrehozott
@@ -28,15 +27,12 @@ namespace week08.Entities
             DrawImage(e.Graphics);
         }
 
-        protected void DrawImage(Graphics g)
-        {
-            g.FillEllipse(new SolidBrush(Color.Blue), 0, 0, Width, Height);
-        }
+        protected abstract void DrawImage(Graphics g);
 
-        public void MoveBall()
+        public virtual void MoveToy()
         {
             Left += 1;
         }
-            
+
     }
 }
