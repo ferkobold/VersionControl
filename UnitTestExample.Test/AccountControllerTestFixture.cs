@@ -37,17 +37,31 @@ namespace UnitTestExample.Test
             TestCase("Abcd123", false),
             TestCase("Abcd1234", true)
         ]
-        public void TestValidatePassword(string password, bool expectedResult1)
+        public void TestValidatePassword(string password, bool expectedResult)
         {
             //Arrange
-            var accountController1 = new AccountController();
+            var accountController = new AccountController();
 
             //Act
-            var actualresult1 = accountController1.ValidatePassword(password);
+            var actualresult = accountController.ValidatePassword(password);
 
             //Assert
-            Assert.AreEqual(expectedResult1, actualresult1);
+            Assert.AreEqual(expectedResult, actualresult);
 
+        }
+
+        public void TestRegisterHappyPath(string email, string password)
+        {
+            //Arrange
+            var accountController = new AccountController();
+
+            //Act
+            var actualResult = accountController.Register(email, password);
+
+            //Assert
+            Assert.AreEqual(email, actualResult.Email);
+            Assert.AreEqual(password, actualResult.Password);
+            Assert.AreNotEqual(Guid.Empty, actualResult.ID);
         }
     }
 }
