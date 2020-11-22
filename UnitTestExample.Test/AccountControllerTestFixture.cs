@@ -71,7 +71,14 @@ namespace UnitTestExample.Test
         }
 
 
-
+        [
+            Test,
+            TestCase("irf@uni-corvinus.hu", "ABCD1234"),
+            TestCase("irfuni-corvinus.hu", "Abcd1234"),
+            TestCase("irf@uni-corvinus.hu", "abcd1234"),
+            TestCase("irf@uni-corvinus", "Abcd1234"),
+            TestCase("uni-corvinus.hu", "Abcd123")
+        ]
         public void TestRegisterValidateException (string email, string password)
         {
             //Arrange
