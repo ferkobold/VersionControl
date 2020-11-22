@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using UnitTestExample.Controllers;
+using System.Activities;
 
 namespace UnitTestExample.Test
 {
@@ -67,6 +68,25 @@ namespace UnitTestExample.Test
             Assert.AreEqual(email, actualResult.Email);
             Assert.AreEqual(password, actualResult.Password);
             Assert.AreNotEqual(Guid.Empty, actualResult.ID);
+        }
+
+
+
+        public void TestRegisterValidateException (string email, string password)
+        {
+            //Arrange
+            var accountController = new AccountController();
+
+            //Act
+            try
+            {
+                var actualResult = accountController.Register(email, password);
+                Assert.Fail();
+            }
+            catch (Exception ex)
+            {
+                Assert.IsInstanceOf<ValidationException>(ex);
+            }
         }
     }
 }
