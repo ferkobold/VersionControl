@@ -22,6 +22,9 @@ namespace week10
 
             ga = gc.ActivateDisplay();
             this.Controls.Add(ga);
+            /*Use the below 2 lines to test the map*/
+            //gc.AddPlayer();
+            //gc.Start(true);
         }
     }
 }
